@@ -1,108 +1,87 @@
-function generateBotReply(text) {
-  const message = text.trim().toLowerCase();
+function generateBotReply(message) {
+  const text = message.toLowerCase();
 
-  if (
-    message === "hi" ||
-    message === "hello" ||
-    message === "hallo" ||
-    message === "start" ||
-    message === "menu"
-  ) {
-    return `Welcome to Zafar Quality Control.
+  if (text === "hello" || text === "hi") {
+    return `Welcome to Zafar Quality Control 👋
 
-We support companies with professional quality inspection and measurement services.
+We provide professional inspection and quality services.
 
-Please reply with a number:
+Please choose an option:
 
-1 - Services
-2 - Experience
-3 - Request a quotation
-4 - Contact
-5 - Deutsch
-
-You can also type menu anytime.`;
+1️⃣ Our Services  
+2️⃣ Experience & Industries  
+3️⃣ Request a Quote  
+4️⃣ Contact Details  
+5️⃣ Speak to Human`;
   }
 
-  if (message === "1") {
-    return `Our services:
+  if (text === "1") {
+    return `🔧 Our Services:
 
-- Surface inspection
-- Dimensional inspection
-- Measuring and gauging
-- 3D / CMM measurement support
-- Sorting and rework support
-- Supplier quality support
-- On-site quality control services
+✔️ Pre-shipment Inspection  
+✔️ In-line Production Inspection  
+✔️ Final Random Inspection  
+✔️ Factory Audit  
+✔️ Container Loading Check  
 
-Reply with menu to go back.`;
+Reply *menu* to go back.`;
   }
 
-  if (message === "2") {
-    return `Zafar Quality Control has practical experience in quality assurance and inspection work, including:
+  if (text === "2") {
+    return `🏭 Experience & Industries:
 
-- Surface control
-- Measuring and gauging
-- CMM and 3D measurement support
-- Quality inspection processes
-- Industrial and production support
+We have experience in:
 
-Reply with menu to go back.`;
+✔️ Automotive  
+✔️ Textile & Garments  
+✔️ Leather Products  
+✔️ Machinery & Tools  
+
+Reply *menu* to go back.`;
   }
 
-  if (message === "3") {
-    return `Quotation request:
+  if (text === "3") {
+    return `📩 Request a Quote:
 
-Please send the following details:
-- Company name
-- Contact person
-- City / country
-- Required service
-- Quantity or project scope
-- Preferred callback number or email
+Please send:
 
-We will review your request and contact you.
+- Your Name  
+- Company Name  
+- Product Type  
+- Inspection Location  
 
-Reply with menu to go back.`;
+Our team will contact you shortly.`;
   }
 
-  if (message === "4") {
-    return `Contact Zafar Quality Control:
+  if (text === "4") {
+    return `📞 Contact Details:
 
-Please send your inquiry here on WhatsApp and include:
-- Your name
-- Company
-- Service needed
-- Location
+Zafar Quality Control  
+📧 Email: info@zafarqc.com  
+📱 WhatsApp: +491234567890  
 
-We will reply as soon as possible.
-
-Reply with menu to go back.`;
+We respond within 24 hours.`;
   }
 
-  if (message === "5" || message === "deutsch") {
-    return `Willkommen bei Zafar Quality Control.
+  if (text === "5") {
+    return `👨‍💼 A human agent will contact you soon.
 
-Bitte antworten Sie mit einer Zahl:
-
-1 - Leistungen
-2 - Erfahrung
-3 - Angebot anfragen
-4 - Kontakt
-5 - Deutsch
-
-Sie können jederzeit menu schreiben.`;
+Please describe your requirement briefly.`;
   }
 
-  return `Thank you for your message.
+  if (text === "menu") {
+    return `Main Menu:
 
-Please type:
-1 for Services
-2 for Experience
-3 for Request a quotation
-4 for Contact
-5 for Deutsch
+1️⃣ Our Services  
+2️⃣ Experience  
+3️⃣ Request Quote  
+4️⃣ Contact  
+5️⃣ Human`;
+  }
 
-You can also type menu.`;
+  return `❓ I didn't understand that.
+
+Type *menu* to see options.`;
 }
 
 module.exports = { generateBotReply };

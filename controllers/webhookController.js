@@ -1,3 +1,4 @@
+const { generateAIReply } = require('../services/aiService');
 const express = require('express');
 const axios = require('axios');
 const leadSessions = new Map();
@@ -174,8 +175,13 @@ Our team will contact you soon.`;
           continue;
         }
 
-        const replyText = generateBotReply(incomingText);
-        await sendWhatsAppTextMessage(from, replyText);
+   let replyText = generateBotReply(incomingText);
+
+if (replyText.includes("I didn't understand")) {
+  replyText = await generateAIReply(incomingText);
+}
+
+await sendWhatsAppTextMessage(from, replyText);
       }
     }
   }

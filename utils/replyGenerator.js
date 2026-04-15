@@ -1,18 +1,17 @@
 function generateBotReply(message) {
   const text = message.toLowerCase();
 
-  if (text === "hello" || text === "hi") {
+  if (text === "hello" || text === "hi" || text === "hallo") {
     return `Welcome to Zafar Quality Control 👋
+Willkommen bei Zafar Quality Control 👋
 
-We provide professional inspection and quality services.
+Please choose / Bitte wählen:
 
-Please choose an option:
-
-1️⃣ Our Services  
-2️⃣ Experience & Industries  
-3️⃣ Request a Quote  
-4️⃣ Contact Details  
-5️⃣ Speak to Human`;
+1️⃣ Our Services / Unsere Dienstleistungen  
+2️⃣ Experience / Erfahrung  
+3️⃣ Request a Quote / Angebot anfragen  
+4️⃣ Contact / Kontakt  
+5️⃣ Human / Mitarbeiter`;
   }
 
   if (text === "1") {
@@ -69,7 +68,7 @@ We respond within 24 hours.`;
 Please describe your requirement briefly.`;
   }
 
-  if (text === "menu") {
+  if (text === "menu" || text === "menü") {
     return `Main Menu:
 
 1️⃣ Our Services  

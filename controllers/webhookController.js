@@ -1,4 +1,5 @@
 const express = require('express');
+const leadSessions = new Map();
 const { sendWhatsAppTextMessage } = require('../services/whatsappService');
 const { generateBotReply } = require('../utils/replyGenerator');
 
@@ -21,10 +22,22 @@ function isTextMessage(message) {
 }
 
 function isFromBusiness(message, metadata) {
-  // The WhatsApp webhook payload usually includes the business phone number
-  // in metadata.display_phone_number. If the incoming message "from" value
-  // matches that, it is likely a message sent by the business account.
   return metadata?.display_phone_number && message.from === metadata.display_phone_number;
+}
+
+function startLeadSession(phone) {
+  leadSessions.set(phone, {
+    step: 'name',
+    data: {},
+  });
+}
+
+function clearLeadSession(phone) {
+  leadSessions.delete(phone);
+}
+
+function getLeadSession(phone) {
+  return leadSessions.get(phone);
 }
 
 webhookRouter.get('/webhook', (req, res) => {
@@ -58,7 +71,6 @@ webhookRouter.post('/webhook', async (req, res) => {
       }
 
       if (value.statuses && value.statuses.length > 0) {
-        // Skip delivery/read status updates.
         continue;
       }
 
@@ -98,9 +110,65 @@ webhookRouter.post('/webhook', async (req, res) => {
 
         addProcessedMessageId(message.id);
 
-        const incomingText = message.text.body;
+        const incomingText = message.text.body.trim();
+        const from = message.from;
+
+        const currentSession = getLeadSession(from);
+
+        if (currentSession) {
+          if (currentSession.step === 'name') {
+            currentSession.data.name = incomingText;
+            currentSession.step = 'company';
+            await sendWhatsAppTextMessage(from, 'Please enter your company name.');
+            continue;
+          }
+
+          if (currentSession.step === 'company') {
+            currentSession.data.company = incomingText;
+            currentSession.step = 'product';
+            await sendWhatsAppTextMessage(from, 'Please describe the product or service you need.');
+            continue;
+          }
+
+          if (currentSession.step === 'product') {
+            currentSession.data.product = incomingText;
+            currentSession.step = 'location';
+            await sendWhatsAppTextMessage(from, 'Please enter the inspection or project location.');
+            continue;
+          }
+
+          if (currentSession.step === 'location') {
+            currentSession.data.location = incomingText;
+
+            const summary = `Thank you. Your quotation request has been recorded.
+
+Name: ${currentSession.data.name}
+Company: ${currentSession.data.company}
+Product/Service: ${currentSession.data.product}
+Location: ${currentSession.data.location}
+
+Our team will contact you soon.`;
+
+            await sendWhatsAppTextMessage(from, summary);
+
+            console.log('New lead captured:', {
+              phone: from,
+              ...currentSession.data,
+            });
+
+            clearLeadSession(from);
+            continue;
+          }
+        }
+
+        if (incomingText === '3') {
+          startLeadSession(from);
+          await sendWhatsAppTextMessage(from, 'Quotation request started. Please enter your full name.');
+          continue;
+        }
+
         const replyText = generateBotReply(incomingText);
-        await sendWhatsAppTextMessage(message.from, replyText);
+        await sendWhatsAppTextMessage(from, replyText);
       }
     }
   }
@@ -109,3 +177,4 @@ webhookRouter.post('/webhook', async (req, res) => {
 });
 
 module.exports = { webhookRouter };
+

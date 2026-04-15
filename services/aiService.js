@@ -41,7 +41,11 @@ async function generateAIReply(message) {
     return aiText.trim();
   } catch (error) {
     console.error('AI Error:', error.response?.data || error.message || error);
-    return 'Sorry, something went wrong. Please try again later.';
+    if (message.toLowerCase().match(/[äöüß]|\bich\b|\bbrauche\b|\binspektion\b/)) {
+  return "Der KI-Assistent ist vorübergehend nicht verfügbar. Bitte nutzen Sie das Menü oder fordern Sie ein Angebot an.";
+}
+
+return "The AI assistant is temporarily unavailable. Please use the menu or request a quote.";
   }
 }
 

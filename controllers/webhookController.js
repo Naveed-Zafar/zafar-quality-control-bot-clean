@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 const leadSessions = new Map();
 const { sendWhatsAppTextMessage } = require('../services/whatsappService');
 const { generateBotReply } = require('../utils/replyGenerator');
@@ -149,7 +150,13 @@ Location: ${currentSession.data.location}
 
 Our team will contact you soon.`;
 
-            await sendWhatsAppTextMessage(from, summary);
+            await axios.post('https://script.google.com/macros/s/AKfycbyv5aHdfDDvNFLOGCpsu2_Wvwd9D5xV5pw-bx_hgFa-1X5qI2tsIEEi5mo29EZi3vJOMw/exec', {
+  phone: from,
+  name: currentSession.data.name,
+  company: currentSession.data.company,
+  product: currentSession.data.product,
+  location: currentSession.data.location
+});await sendWhatsAppTextMessage(from, summary);
 
             console.log('New lead captured:', {
               phone: from,

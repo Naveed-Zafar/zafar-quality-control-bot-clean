@@ -1,10 +1,10 @@
-const { generateAIReply } = require('../services/aiService');
 const express = require('express');
 const axios = require('axios');
-const leadSessions = new Map();
+const { generateAIReply } = require('../services/aiService');
 const { sendWhatsAppTextMessage } = require('../services/whatsappService');
 const { generateBotReply } = require('../utils/replyGenerator');
 
+const leadSessions = new Map();
 const webhookRouter = express.Router();
 
 // Keep track of message IDs to avoid sending duplicate replies.
@@ -114,7 +114,6 @@ webhookRouter.post('/webhook', async (req, res) => {
 
         const incomingText = message.text.body.trim();
         const from = message.from;
-
         const currentSession = getLeadSession(from);
 
         if (currentSession) {
@@ -152,12 +151,14 @@ Location: ${currentSession.data.location}
 Our team will contact you soon.`;
 
             await axios.post('https://script.google.com/macros/s/AKfycbyv5aHdfDDvNFLOGCpsu2_Wvwd9D5xV5pw-bx_hgFa-1X5qI2tsIEEi5mo29EZi3vJOMw/exec', {
-  phone: from,
-  name: currentSession.data.name,
-  company: currentSession.data.company,
-  product: currentSession.data.product,
-  location: currentSession.data.location
-});await sendWhatsAppTextMessage(from, summary);
+              phone: from,
+              name: currentSession.data.name,
+              company: currentSession.data.company,
+              product: currentSession.data.product,
+              location: currentSession.data.location
+            });
+
+            await sendWhatsAppTextMessage(from, summary);
 
             console.log('New lead captured:', {
               phone: from,
@@ -175,13 +176,13 @@ Our team will contact you soon.`;
           continue;
         }
 
-   let replyText = generateBotReply(incomingText);
+        let replyText = generateBotReply(incomingText);
 
-if (replyText.includes("I didn't understand")) {
-  replyText = await generateAIReply(incomingText);
-}
+        if (replyText.includes("I didn't understand")) {
+          replyText = await generateAIReply(incomingText);
+        }
 
-await sendWhatsAppTextMessage(from, replyText);
+        await sendWhatsAppTextMessage(from, replyText);
       }
     }
   }
@@ -190,4 +191,3 @@ await sendWhatsAppTextMessage(from, replyText);
 });
 
 module.exports = { webhookRouter };
-

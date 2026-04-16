@@ -116,6 +116,7 @@ webhookRouter.post('/webhook', async (req, res) => {
         const from = message.from;
         const currentSession = getLeadSession(from);
 
+        // Lead capture flow
         if (currentSession) {
           if (currentSession.step === 'name') {
             currentSession.data.name = incomingText;
@@ -150,13 +151,16 @@ Location: ${currentSession.data.location}
 
 Our team will contact you soon.`;
 
-            await axios.post('https://script.google.com/macros/s/AKfycbyv5aHdfDDvNFLOGCpsu2_Wvwd9D5xV5pw-bx_hgFa-1X5qI2tsIEEi5mo29EZi3vJOMw/exec', {
-              phone: from,
-              name: currentSession.data.name,
-              company: currentSession.data.company,
-              product: currentSession.data.product,
-              location: currentSession.data.location
-            });
+            await axios.post(
+              'https://script.google.com/macros/s/AKfycbyv5aHdfDDvNFLOGCpsu2_Wvwd9D5xV5pw-bx_hgFa-1X5qI2tsIEEi5mo29EZi3vJOMw/exec',
+              {
+                phone: from,
+                name: currentSession.data.name,
+                company: currentSession.data.company,
+                product: currentSession.data.product,
+                location: currentSession.data.location,
+              }
+            );
 
             await sendWhatsAppTextMessage(from, summary);
 
@@ -170,15 +174,23 @@ Our team will contact you soon.`;
           }
         }
 
+        // Start lead flow
         if (incomingText === '3') {
           startLeadSession(from);
           await sendWhatsAppTextMessage(from, 'Quotation request started. Please enter your full name.');
           continue;
         }
 
+        // Normal menu reply first
         let replyText = generateBotReply(incomingText);
 
-        if (replyText.includes("I didn't understand")) {
+        // If fallback/default reply appears, route to AI
+        if (
+          replyText.includes('Type *menu* to continue.') ||
+          replyText.includes('Bitte wählen Sie eine Option') ||
+          replyText.includes('I didn’t fully understand') ||
+          replyText.includes("I didn't fully understand")
+        ) {
           replyText = await generateAIReply(incomingText);
         }
 

@@ -6,14 +6,14 @@ function generateBotReply(message) {
     return `Welcome to Zafar Quality Control 👋
 Willkommen bei Zafar Quality Control 👋
 
-We provide professional quality inspection and rework services for industrial clients.
+We provide professional quality inspection, rework and industrial support services.
 
-Wir bieten professionelle Qualitätskontrollen und Nacharbeiten für Industrieunternehmen.
+Wir bieten professionelle Qualitätsprüfungen, Nacharbeiten und industrielle Unterstützung.
 
 Please choose / Bitte wählen:
 
-1️⃣ Inspection & Rework Services / Dienstleistungen  
-2️⃣ Industries & Experience / Erfahrung  
+1️⃣ Services / Dienstleistungen  
+2️⃣ Experience / Erfahrung  
 3️⃣ Request a Quote / Angebot anfragen  
 4️⃣ Contact / Kontakt  
 5️⃣ Speak to Expert / Mitarbeiter`;
@@ -21,48 +21,65 @@ Please choose / Bitte wählen:
 
   // ===== SERVICES =====
   if (text === "1") {
-    return `🔧 Our Services / Unsere Dienstleistungen:
+    return `🔧 Services / Dienstleistungen:
 
-✔️ Visual Inspection (100% inspection, KMG / manual)  
+✔️ Quality Inspection (visual, dimensional, 100% control)  
 ✔️ Rework & Sorting Services  
 ✔️ Incoming Goods Inspection  
-✔️ Final Quality Inspection  
+✔️ Final Inspection  
 ✔️ Technical Cleaning  
 ✔️ Assembly of Components  
 ✔️ Electrical Testing (E-Mobility)
 
-We ensure reliable quality control according to customer specifications.
+✔️ Qualitätsprüfung (Sichtprüfung, Messung, 100% Kontrolle)  
+✔️ Nacharbeit & Sortierarbeiten  
+✔️ Wareneingangsprüfung  
+✔️ Endkontrolle  
+✔️ Technisches Reinigen  
+✔️ Montage von Baugruppen  
+✔️ Elektrische Prüfungen (E-Mobilität)
 
-Reply *menu* to go back.`;
+We work according to customer specifications and quality standards.
+
+Wir arbeiten nach Kundenvorgaben und Qualitätsstandards.
+
+Type *menu* to return / *menu* für Hauptmenü.`;
   }
 
   // ===== EXPERIENCE =====
   if (text === "2") {
-    return `🏭 Industries & Experience / Erfahrung:
+    return `🏭 Experience / Erfahrung:
 
-We have extensive experience in:
+We have strong experience in:
 
 ✔️ Automotive Industry  
 ✔️ Metal & Plastic Components  
 ✔️ Manufacturing & Production  
-✔️ Supplier Quality Management  
+✔️ Supplier Quality Assurance  
 
-With years of hands-on experience in quality assurance, project coordination and on-site inspections, we support companies across Germany.
+Mit umfangreicher Erfahrung in:
 
-Mit langjähriger Erfahrung in der Qualitätsprüfung unterstützen wir Unternehmen deutschlandweit.
+✔️ Automobilindustrie  
+✔️ Metall- und Kunststoffteile  
+✔️ Produktion & Fertigung  
+✔️ Lieferantenqualität  
 
-Reply *menu* to go back.`;
+We support companies on-site with flexible and reliable quality solutions.
+
+Wir unterstützen Unternehmen flexibel vor Ort mit zuverlässigen Qualitätslösungen.
+
+Type *menu* to return.`;
   }
 
   // ===== QUOTE =====
   if (text === "3") {
-    return `📩 Request a Quote / Angebot:
+    return `📩 Request a Quote / Angebot anfragen:
 
-Please provide the following information:
+Please provide:
 
 - Full Name  
 - Company Name  
-- Product / Service required  
+- Product / Service  
 - Location  
 
 Bitte senden Sie:
@@ -72,7 +89,9 @@ Bitte senden Sie:
 - Produkt / Dienstleistung  
 - Einsatzort  
 
-Our team will contact you shortly.`;
+Our team will contact you shortly.
+
+Unser Team wird sich schnellstmöglich bei Ihnen melden.`;
   }
 
   // ===== CONTACT =====
@@ -80,25 +99,29 @@ Our team will contact you shortly.`;
     return `📞 Contact / Kontakt:
 
 Zafar Quality Control  
-📍 Germany (Lüdenscheid region)  
+📍 Germany (NRW Region)
 
-📧 Email: info@zafarqc.com  
+📧 Email: your@email.com  
 📱 WhatsApp: +49XXXXXXXXX  
 
 We respond quickly and professionally.
 
-Wir antworten schnell und zuverlässig.`;
+Wir antworten schnell und zuverlässig.
+
+Type *menu* to return.`;
   }
 
   // ===== HUMAN =====
   if (text === "5") {
-    return `👨‍💼 Expert Support:
+    return `👨‍💼 Expert Support / Mitarbeiter:
 
 A quality specialist will contact you shortly.
 
+Ein Mitarbeiter wird sich zeitnah bei Ihnen melden.
+
 Please describe your request briefly.
 
-Ein Mitarbeiter wird sich zeitnah bei Ihnen melden.`;
+Bitte beschreiben Sie Ihr Anliegen kurz.`;
   }
 
   // ===== MENU =====
@@ -112,28 +135,36 @@ Ein Mitarbeiter wird sich zeitnah bei Ihnen melden.`;
 5️⃣ Expert`;
   }
 
-  // ===== KEYWORD SMART RESPONSES =====
+  // ===== SMART KEYWORD RESPONSES =====
 
-  if (text.includes("inspection") || text.includes("prüfung") || text.includes("kontrolle")) {
-    return `We offer professional inspection services including visual inspection, measurement and documentation.
+  if (
+    text.includes("prüfung") ||
+    text.includes("kontrolle") ||
+    text.includes("inspection")
+  ) {
+    return `We offer professional quality inspection including visual checks, measurement and documentation.
 
-Wir bieten professionelle Prüfungen inkl. Dokumentation und Fehleranalyse.
+Wir bieten professionelle Qualitätsprüfungen inkl. Sichtprüfung, Messung und Dokumentation.
 
-Type *3* to request a quotation.`;
+Type *3* to request a quotation / Angebot anfragen.`;
   }
 
-  if (text.includes("rework") || text.includes("nacharbeit") || text.includes("sortierung")) {
-    return `Our team provides fast and reliable rework and sorting services on-site or at your facility.
+  if (
+    text.includes("nacharbeit") ||
+    text.includes("sortierung") ||
+    text.includes("rework")
+  ) {
+    return `We provide flexible rework and sorting services directly at your site.
 
-Unsere Fachkräfte übernehmen Nacharbeiten und Sortierarbeiten effizient und flexibel.
+Wir bieten flexible Nacharbeit und Sortierarbeiten direkt bei Ihnen vor Ort.
 
-Type *3* for a quotation.`;
+Type *3* for quotation.`;
   }
 
-  if (text.includes("automotive")) {
-    return `We have strong experience in the automotive sector including supplier quality and component inspection.
+  if (text.includes("automotive") || text.includes("autoteile")) {
+    return `We have strong experience in automotive quality control and supplier support.
 
-Wir verfügen über umfangreiche Erfahrung im Automotive-Bereich.
+Wir verfügen über umfangreiche Erfahrung in der Qualitätsprüfung im Automotive-Bereich.
 
 Type *3* to request a quote.`;
   }
@@ -141,9 +172,9 @@ Type *3* to request a quote.`;
   // ===== DEFAULT =====
   return `❓ I didn’t fully understand your request.
 
-Please select an option from the menu or describe your request.
+Bitte beschreiben Sie Ihr Anliegen genauer oder wählen Sie eine Option.
 
-Bitte wählen Sie eine Option oder beschreiben Sie Ihr Anliegen.
+Please select an option from the menu.
 
 Type *menu* to continue.`;
 }

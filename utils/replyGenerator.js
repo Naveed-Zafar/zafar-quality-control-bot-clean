@@ -6,24 +6,24 @@ function generateBotReply(message) {
     return `Welcome to Zafar Quality Control 👋
 Willkommen bei Zafar Quality Control 👋
 
-We support companies with professional quality inspection, rework and on-site industrial services.
+We support industrial clients with professional quality inspection, rework, sorting and on-site quality services.
 
-Wir unterstützen Unternehmen mit professioneller Qualitätsprüfung, Nacharbeit und industriellen Vor-Ort-Dienstleistungen.
+Wir unterstützen Industrieunternehmen mit professioneller Qualitätsprüfung, Nacharbeit, Sortierarbeiten und Qualitätsdienstleistungen vor Ort.
 
-✔️ Fast response
-✔️ Flexible deployment
-✔️ Customer-focused solutions
+✔️ Fast response  
+✔️ Flexible deployment  
+✔️ Customer-focused quality solutions  
 
-✔️ Schnelle Reaktion
-✔️ Flexible Einsätze
-✔️ Kundenorientierte Lösungen
+✔️ Schnelle Reaktion  
+✔️ Flexible Einsätze  
+✔️ Kundenorientierte Qualitätslösungen  
 
 Please choose / Bitte wählen:
 
-1️⃣ Services / Dienstleistungen
-2️⃣ Experience / Erfahrung
-3️⃣ Request a Quote / Angebot
-4️⃣ Contact / Kontakt
+1️⃣ Services / Dienstleistungen  
+2️⃣ Experience & Industries / Erfahrung & Branchen  
+3️⃣ Request a Quote / Angebot anfragen  
+4️⃣ Contact / Kontakt  
 5️⃣ Speak to Expert / Mitarbeiter`;
   }
 
@@ -31,48 +31,49 @@ Please choose / Bitte wählen:
   if (text === "1") {
     return `🔧 Services / Dienstleistungen:
 
-✔️ Quality Inspection (visual, dimensional, 100% control)
-✔️ Rework & Sorting Services
-✔️ Incoming Goods Inspection
-✔️ Final Inspection
-✔️ Technical Cleaning
-✔️ Assembly of Components
-✔️ Electrical Testing (E-Mobility)
+✔️ Quality Inspection / Qualitätsprüfung  
+✔️ Visual Inspection / Sichtprüfung  
+✔️ Dimensional Inspection / Maßprüfung  
+✔️ 100% Control / 100%-Kontrolle  
+✔️ Rework & Sorting / Nacharbeit & Sortierarbeiten  
+✔️ Incoming Goods Inspection / Wareneingangsprüfung  
+✔️ Final Inspection / Endkontrolle  
+✔️ Technical Cleaning / Technisches Reinigen  
+✔️ Assembly of Components / Montage von Baugruppen  
+✔️ Electrical Testing / Elektrische Prüfungen
 
-✔️ Qualitätsprüfung (Sichtprüfung, Messung, 100%-Kontrolle)
-✔️ Nacharbeit & Sortierarbeiten
-✔️ Wareneingangsprüfung
-✔️ Endkontrolle
-✔️ Technisches Reinigen
-✔️ Montage von Baugruppen
-✔️ Elektrische Prüfungen (E-Mobilität)
+We work according to customer specifications, inspection instructions and quality requirements.
 
-We work according to customer specifications and quality standards.
-
-Wir arbeiten nach Kundenvorgaben und Qualitätsstandards.
+Wir arbeiten nach Kundenvorgaben, Prüfanweisungen und Qualitätsanforderungen.
 
 Type *menu* to return / *menu* für Hauptmenü.`;
   }
 
   // ===== EXPERIENCE =====
   if (text === "2") {
-    return `🏭 Experience / Erfahrung:
+    return `🏭 Experience & Industries / Erfahrung & Branchen:
 
-✔️ Automotive Industry
-✔️ Metal & Plastic Components
-✔️ Manufacturing & Production
-✔️ Supplier Quality Assurance
-✔️ On-site Quality Support
+We have practical experience in:
 
-✔️ Automobilindustrie
-✔️ Metall- und Kunststoffteile
-✔️ Produktion & Fertigung
-✔️ Lieferantenqualität
-✔️ Qualitätsunterstützung vor Ort
+✔️ Automotive  
+✔️ Metal Components  
+✔️ Plastic Components  
+✔️ Manufacturing & Production  
+✔️ Supplier Quality Support  
+✔️ On-site Quality Services
 
-We focus on reliability, precision and fast response times.
+Wir verfügen über praktische Erfahrung in:
 
-Unser Fokus liegt auf Zuverlässigkeit, Präzision und schneller Reaktionszeit.
+✔️ Automotive  
+✔️ Metallteile  
+✔️ Kunststoffteile  
+✔️ Produktion & Fertigung  
+✔️ Lieferantenqualität  
+✔️ Qualitätsdienstleistungen vor Ort
+
+Our focus is reliability, flexibility, precision and fast support in quality-related situations.
+
+Unser Fokus liegt auf Zuverlässigkeit, Flexibilität, Präzision und schneller Unterstützung bei qualitätsrelevanten Aufgaben.
 
 Type *menu* to return.`;
   }
@@ -83,36 +84,36 @@ Type *menu* to return.`;
 
 Please provide:
 
-- Full Name
-- Company Name
-- Product / Service
-- Location
+- Full Name  
+- Company Name  
+- Product / Service  
+- Location  
 
 Bitte senden Sie:
 
-- Ihren Namen
-- Firmenname
-- Produkt / Dienstleistung
-- Einsatzort
+- Ihren Namen  
+- Firmenname  
+- Produkt / Dienstleistung  
+- Einsatzort  
 
-Our team will contact you shortly.
+Our team will review your request and contact you shortly.
 
-Unser Team wird sich schnellstmöglich bei Ihnen melden.`;
+Unser Team prüft Ihre Anfrage und meldet sich schnellstmöglich bei Ihnen.`;
   }
 
   // ===== CONTACT =====
   if (text === "4") {
     return `📞 Contact / Kontakt:
 
-Zafar Quality Control
-📍 NRW / Germany
+Zafar Quality Control  
+📍 Lüdenscheid / NRW / Germany
 
-📧 Email: your@email.com
-📱 WhatsApp: +49XXXXXXXXX
+📧 Email: your@email.com  
+📱 WhatsApp: +49XXXXXXXXX  
 
-We respond quickly and professionally.
+We support companies quickly, professionally and reliably.
 
-Wir antworten schnell, professionell und zuverlässig.
+Wir unterstützen Unternehmen schnell, professionell und zuverlässig.
 
 Type *menu* to return.`;
   }
@@ -134,11 +135,28 @@ Bitte beschreiben Sie Ihr Anliegen kurz.`;
   if (text === "menu" || text === "menü") {
     return `Main Menu / Hauptmenü:
 
-1️⃣ Services / Dienstleistungen
-2️⃣ Experience / Erfahrung
-3️⃣ Quote / Angebot
-4️⃣ Contact / Kontakt
+1️⃣ Services / Dienstleistungen  
+2️⃣ Experience & Industries / Erfahrung & Branchen  
+3️⃣ Quote / Angebot  
+4️⃣ Contact / Kontakt  
 5️⃣ Expert / Mitarbeiter`;
+  }
+
+  // ===== ABOUT US =====
+  if (
+    text.includes("über uns") ||
+    text.includes("about you") ||
+    text.includes("about us") ||
+    text.includes("wer sind sie") ||
+    text.includes("who are you")
+  ) {
+    return `We provide practical quality support for industrial companies with focus on inspection, rework, sorting and customer-oriented on-site support.
+
+Wir bieten praxisnahe Qualitätsunterstützung für Industrieunternehmen mit Fokus auf Prüfung, Nacharbeit, Sortierung und kundenorientierte Unterstützung vor Ort.
+
+Our aim is to solve quality issues quickly, reliably and according to customer requirements.
+
+Unser Ziel ist es, Qualitätsprobleme schnell, zuverlässig und nach Kundenvorgaben zu lösen.`;
   }
 
   // ===== WHY US / TRUST =====
@@ -152,12 +170,12 @@ Bitte beschreiben Sie Ihr Anliegen kurz.`;
 
 Wir unterstützen Unternehmen mit praktischer Qualitätserfahrung, flexiblen Einsätzen und zuverlässiger Vor-Ort-Unterstützung.
 
-Our goal is to solve quality issues quickly and professionally.
+Our strength is fast reaction, clear communication and customer-focused execution.
 
-Unser Ziel ist es, Qualitätsprobleme schnell und professionell zu lösen.`;
+Unsere Stärke ist schnelle Reaktion, klare Kommunikation und kundenorientierte Umsetzung.`;
   }
 
-  // ===== LOCATION / ON-SITE =====
+  // ===== LOCATION / NRW / GERMANY =====
   if (
     text.includes("lüdenscheid") ||
     text.includes("nrw") ||
@@ -166,9 +184,9 @@ Unser Ziel ist es, Qualitätsprobleme schnell und professionell zu lösen.`;
     text.includes("vor ort") ||
     text.includes("on-site")
   ) {
-    return `We support clients in NRW and other regions depending on project scope and location.
+    return `We support clients in Lüdenscheid, NRW and other regions depending on project scope and location.
 
-Wir unterstützen Kunden in NRW und je nach Projektumfang auch in anderen Regionen.
+Wir unterstützen Kunden in Lüdenscheid, NRW und je nach Projektumfang auch in anderen Regionen.
 
 Type *3* to send your project request directly.`;
   }
@@ -183,7 +201,7 @@ Type *3* to send your project request directly.`;
   ) {
     return `We understand urgent quality issues and aim to support companies as quickly as possible depending on project scope and location.
 
-Wir wissen, dass Qualitätsprobleme oft kurzfristig gelöst werden müssen und unterstützen Unternehmen je nach Projektumfang und Einsatzort schnellstmöglich.
+Wir wissen, dass Qualitätsprobleme oft kurzfristig gelöst werden müssen, und unterstützen Unternehmen je nach Projektumfang und Einsatzort schnellstmöglich.
 
 Type *3* to request support directly.`;
   }
@@ -300,6 +318,18 @@ Wir unterstützen Unternehmen flexibel bei Auftragsspitzen, Qualitätsengpässen
 Type *3* to send your request.`;
   }
 
+  // ===== CALLBACK / CONTACT REQUEST =====
+  if (
+    text.includes("rückruf") ||
+    text.includes("call me") ||
+    text.includes("rufen sie mich an") ||
+    text.includes("contact me")
+  ) {
+    return `Please send your name, company and phone number. We will get back to you as soon as possible.
+
+Bitte senden Sie Ihren Namen, Firmennamen und Ihre Telefonnummer. Wir melden uns schnellstmöglich bei Ihnen.`;
+  }
+
   // ===== INSPECTION GENERAL =====
   if (
     text.includes("prüfung") ||
@@ -311,18 +341,6 @@ Type *3* to send your request.`;
 Wir bieten professionelle Qualitätsprüfungen inklusive Sichtprüfung, Messung und Dokumentation.
 
 Type *3* to request a quotation / Angebot anfragen.`;
-  }
-
-  // ===== CALLBACK / CONTACT REQUEST =====
-  if (
-    text.includes("rückruf") ||
-    text.includes("call me") ||
-    text.includes("rufen sie mich an") ||
-    text.includes("contact me")
-  ) {
-    return `Please send your name, company and phone number. We will get back to you as soon as possible.
-
-Bitte senden Sie Ihren Namen, Firmennamen und Ihre Telefonnummer. Wir melden uns schnellstmöglich bei Ihnen.`;
   }
 
   // ===== DEFAULT =====

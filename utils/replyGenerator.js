@@ -6,23 +6,23 @@ function generateBotReply(message) {
     return `Welcome to Zafar Quality Control 👋
 Willkommen bei Zafar Quality Control 👋
 
-We support industrial clients with professional quality inspection, rework, sorting and on-site quality services.
+We support industrial companies with professional quality inspection, rework and on-site quality services.
 
-Wir unterstützen Industrieunternehmen mit professioneller Qualitätsprüfung, Nacharbeit, Sortierarbeiten und Qualitätsdienstleistungen vor Ort.
+Wir unterstützen Industrieunternehmen mit professioneller Qualitätsprüfung, Nacharbeit und Vor-Ort-Qualitätsdienstleistungen.
 
 ✔️ Fast response  
 ✔️ Flexible deployment  
-✔️ Customer-focused quality solutions  
+✔️ Reliable quality support  
 
 ✔️ Schnelle Reaktion  
 ✔️ Flexible Einsätze  
-✔️ Kundenorientierte Qualitätslösungen  
+✔️ Zuverlässige Qualitätsunterstützung  
 
 Please choose / Bitte wählen:
 
 1️⃣ Services / Dienstleistungen  
 2️⃣ Experience & Industries / Erfahrung & Branchen  
-3️⃣ Request a Quote / Angebot anfragen  
+3️⃣ Request a Quote / Angebot  
 4️⃣ Contact / Kontakt  
 5️⃣ Speak to Expert / Mitarbeiter`;
   }
@@ -32,55 +32,47 @@ Please choose / Bitte wählen:
     return `🔧 Services / Dienstleistungen:
 
 ✔️ Quality Inspection / Qualitätsprüfung  
-✔️ Visual Inspection / Sichtprüfung  
+✔️ 100% Visual Inspection / 100% Sichtprüfung  
 ✔️ Dimensional Inspection / Maßprüfung  
-✔️ 100% Control / 100%-Kontrolle  
-✔️ Rework & Sorting / Nacharbeit & Sortierarbeiten  
-✔️ Incoming Goods Inspection / Wareneingangsprüfung  
+✔️ Rework & Sorting / Nacharbeit & Sortierung  
+✔️ Incoming Goods Inspection / Wareneingang  
 ✔️ Final Inspection / Endkontrolle  
 ✔️ Technical Cleaning / Technisches Reinigen  
-✔️ Assembly of Components / Montage von Baugruppen  
-✔️ Electrical Testing / Elektrische Prüfungen
+✔️ Assembly Support / Montageunterstützung  
 
-We work according to customer specifications, inspection instructions and quality requirements.
+We work strictly according to customer specifications and quality requirements.
 
-Wir arbeiten nach Kundenvorgaben, Prüfanweisungen und Qualitätsanforderungen.
+Wir arbeiten strikt nach Kundenvorgaben und Qualitätsanforderungen.
 
-Type *menu* to return / *menu* für Hauptmenü.`;
+👉 Type *3* to request a quotation.`;
   }
 
   // ===== EXPERIENCE =====
   if (text === "2") {
     return `🏭 Experience & Industries / Erfahrung & Branchen:
 
-We have practical experience in:
-
-✔️ Automotive  
-✔️ Metal Components  
-✔️ Plastic Components  
+✔️ Automotive Industry  
+✔️ Metal & Plastic Components  
 ✔️ Manufacturing & Production  
 ✔️ Supplier Quality Support  
-✔️ On-site Quality Services
+✔️ On-site Quality Services  
 
-Wir verfügen über praktische Erfahrung in:
-
-✔️ Automotive  
-✔️ Metallteile  
-✔️ Kunststoffteile  
+✔️ Automobilindustrie  
+✔️ Metall- und Kunststoffteile  
 ✔️ Produktion & Fertigung  
 ✔️ Lieferantenqualität  
-✔️ Qualitätsdienstleistungen vor Ort
+✔️ Qualitätsunterstützung vor Ort  
 
-Our focus is reliability, flexibility, precision and fast support in quality-related situations.
+We focus on precision, flexibility and fast problem-solving.
 
-Unser Fokus liegt auf Zuverlässigkeit, Flexibilität, Präzision und schneller Unterstützung bei qualitätsrelevanten Aufgaben.
+Unser Fokus liegt auf Präzision, Flexibilität und schneller Problemlösung.
 
-Type *menu* to return.`;
+👉 Type *3* to request support.`;
   }
 
   // ===== QUOTE =====
   if (text === "3") {
-    return `📩 Request a Quote / Angebot anfragen:
+    return `📩 Request a Quote / Angebot:
 
 Please provide:
 
@@ -96,9 +88,9 @@ Bitte senden Sie:
 - Produkt / Dienstleistung  
 - Einsatzort  
 
-Our team will review your request and contact you shortly.
+We will review your request and contact you as soon as possible.
 
-Unser Team prüft Ihre Anfrage und meldet sich schnellstmöglich bei Ihnen.`;
+Wir prüfen Ihre Anfrage und melden uns schnellstmöglich bei Ihnen.`;
   }
 
   // ===== CONTACT =====
@@ -106,16 +98,16 @@ Unser Team prüft Ihre Anfrage und meldet sich schnellstmöglich bei Ihnen.`;
     return `📞 Contact / Kontakt:
 
 Zafar Quality Control  
-📍 Lüdenscheid / NRW / Germany
+📍 Lüdenscheid / NRW / Germany  
 
-📧 Email: your@email.com  
-📱 WhatsApp: +49XXXXXXXXX  
+📧 Email: rananaveedz@hotmail.com  
+📱 WhatsApp: +4917634278880  
 
-We support companies quickly, professionally and reliably.
+We respond quickly and professionally.
 
-Wir unterstützen Unternehmen schnell, professionell und zuverlässig.
+Wir antworten schnell und professionell.
 
-Type *menu* to return.`;
+👉 You can also request a callback.`;
   }
 
   // ===== HUMAN =====
@@ -135,222 +127,110 @@ Bitte beschreiben Sie Ihr Anliegen kurz.`;
   if (text === "menu" || text === "menü") {
     return `Main Menu / Hauptmenü:
 
-1️⃣ Services / Dienstleistungen  
-2️⃣ Experience & Industries / Erfahrung & Branchen  
-3️⃣ Quote / Angebot  
-4️⃣ Contact / Kontakt  
-5️⃣ Expert / Mitarbeiter`;
+1️⃣ Services  
+2️⃣ Experience  
+3️⃣ Quote  
+4️⃣ Contact  
+5️⃣ Expert`;
   }
 
-  // ===== ABOUT US =====
+  // ===== CALLBACK =====
   if (
-    text.includes("über uns") ||
-    text.includes("about you") ||
-    text.includes("about us") ||
-    text.includes("wer sind sie") ||
-    text.includes("who are you")
+    text.includes("rückruf") ||
+    text.includes("call me") ||
+    text.includes("rufen sie mich an")
   ) {
-    return `We provide practical quality support for industrial companies with focus on inspection, rework, sorting and customer-oriented on-site support.
+    return `📞 Callback Service:
 
-Wir bieten praxisnahe Qualitätsunterstützung für Industrieunternehmen mit Fokus auf Prüfung, Nacharbeit, Sortierung und kundenorientierte Unterstützung vor Ort.
+Please send:
 
-Our aim is to solve quality issues quickly, reliably and according to customer requirements.
+- Your Name  
+- Company  
+- Phone Number  
 
-Unser Ziel ist es, Qualitätsprobleme schnell, zuverlässig und nach Kundenvorgaben zu lösen.`;
-  }
+Bitte senden Sie:
 
-  // ===== WHY US / TRUST =====
-  if (
-    text.includes("warum sie") ||
-    text.includes("why you") ||
-    text.includes("why us") ||
-    text.includes("warum euch")
-  ) {
-    return `We support companies with practical quality experience, flexible deployment and reliable on-site support.
+- Ihren Namen  
+- Firma  
+- Telefonnummer  
 
-Wir unterstützen Unternehmen mit praktischer Qualitätserfahrung, flexiblen Einsätzen und zuverlässiger Vor-Ort-Unterstützung.
+We will contact you as soon as possible.
 
-Our strength is fast reaction, clear communication and customer-focused execution.
-
-Unsere Stärke ist schnelle Reaktion, klare Kommunikation und kundenorientierte Umsetzung.`;
-  }
-
-  // ===== LOCATION / NRW / GERMANY =====
-  if (
-    text.includes("lüdenscheid") ||
-    text.includes("nrw") ||
-    text.includes("deutschland") ||
-    text.includes("germany") ||
-    text.includes("vor ort") ||
-    text.includes("on-site")
-  ) {
-    return `We support clients in Lüdenscheid, NRW and other regions depending on project scope and location.
-
-Wir unterstützen Kunden in Lüdenscheid, NRW und je nach Projektumfang auch in anderen Regionen.
-
-Type *3* to send your project request directly.`;
+Wir melden uns schnellstmöglich bei Ihnen.`;
   }
 
   // ===== SPEED / URGENT =====
   if (
     text.includes("wie schnell") ||
     text.includes("how fast") ||
-    text.includes("kurzfristig") ||
     text.includes("urgent") ||
-    text.includes("schnell")
+    text.includes("kurzfristig")
   ) {
-    return `We understand urgent quality issues and aim to support companies as quickly as possible depending on project scope and location.
+    return `We understand urgent quality issues and aim to respond quickly depending on location and project scope.
 
-Wir wissen, dass Qualitätsprobleme oft kurzfristig gelöst werden müssen, und unterstützen Unternehmen je nach Projektumfang und Einsatzort schnellstmöglich.
+Wir wissen, dass Qualitätsprobleme oft kurzfristig sind und reagieren schnell je nach Einsatzort und Projektumfang.
 
-Type *3* to request support directly.`;
+👉 Type *3* to send your request immediately.`;
   }
 
-  // ===== CUSTOMER SPEC =====
+  // ===== LOCATION =====
   if (
-    text.includes("kundenvorgaben") ||
-    text.includes("customer specification") ||
-    text.includes("customer requirements")
+    text.includes("lüdenscheid") ||
+    text.includes("nrw") ||
+    text.includes("germany") ||
+    text.includes("deutschland")
   ) {
-    return `Yes, we work according to customer specifications, inspection instructions and documented quality requirements.
+    return `We support clients in Lüdenscheid, NRW and across Germany depending on project requirements.
 
-Ja, wir arbeiten nach Kundenvorgaben, Prüfanweisungen und dokumentierten Qualitätsanforderungen.
+Wir unterstützen Kunden in Lüdenscheid, NRW und deutschlandweit je nach Projektanforderung.
 
-Type *3* to discuss your project.`;
-  }
-
-  // ===== 100% CONTROL =====
-  if (
-    text.includes("100%") ||
-    text.includes("100 %") ||
-    text.includes("100 prozent") ||
-    text.includes("100 percent") ||
-    text.includes("sichtprüfung") ||
-    text.includes("visual")
-  ) {
-    return `We provide quality inspection according to customer requirements, including visual inspection, dimensional checks and 100% control when required.
-
-Wir führen Qualitätsprüfungen nach Kundenvorgaben durch, einschließlich Sichtprüfung, Maßkontrolle und bei Bedarf 100%-Kontrolle.
-
-Type *3* for a quotation.`;
-  }
-
-  // ===== REWORK / SORTING =====
-  if (
-    text.includes("nacharbeit") ||
-    text.includes("sortierung") ||
-    text.includes("rework") ||
-    text.includes("sorting")
-  ) {
-    return `We provide reliable rework and sorting services for components, assemblies and production-related quality issues.
-
-Wir übernehmen zuverlässige Nacharbeit und Sortierarbeiten für Bauteile, Baugruppen und produktionsbezogene Qualitätsprobleme.
-
-Type *3* to request support.`;
-  }
-
-  // ===== INCOMING GOODS =====
-  if (
-    text.includes("wareneingang") ||
-    text.includes("incoming goods") ||
-    text.includes("goods inspection")
-  ) {
-    return `We also support incoming goods inspection to identify deviations early and secure your production process.
-
-Wir unterstützen auch bei der Wareneingangsprüfung, um Abweichungen frühzeitig zu erkennen und Ihre Produktion abzusichern.
-
-Type *3* for an inquiry.`;
+👉 Type *3* to request service.`;
   }
 
   // ===== AUTOMOTIVE =====
   if (
     text.includes("automotive") ||
-    text.includes("autoteile") ||
-    text.includes("lieferant") ||
-    text.includes("supplier quality")
+    text.includes("autoteile")
   ) {
-    return `We have strong experience in automotive-related quality control, supplier support and component inspection.
+    return `We have strong experience in automotive quality inspection and supplier support.
 
-Wir verfügen über umfangreiche Erfahrung in der Qualitätsprüfung im Automotive-Bereich, in der Lieferantenunterstützung und bei der Bauteilprüfung.
+Wir verfügen über umfangreiche Erfahrung in der Qualitätsprüfung im Automotive-Bereich.
 
-Type *3* to request a quote.`;
+👉 Type *3* to request a quotation.`;
   }
 
-  // ===== MEASUREMENT =====
+  // ===== REWORK =====
   if (
-    text.includes("messtechnik") ||
-    text.includes("measurement") ||
-    text.includes("kmg") ||
-    text.includes("3d")
+    text.includes("nacharbeit") ||
+    text.includes("sortierung") ||
+    text.includes("rework")
   ) {
-    return `We support quality inspection tasks including measurement-related checks and structured documentation according to project requirements.
+    return `We provide fast and reliable rework and sorting services directly at your site.
 
-Wir unterstützen Qualitätsprüfungen auch im Bereich messtechnischer Kontrollen und strukturierter Dokumentation je nach Projektanforderung.
+Wir bieten schnelle und zuverlässige Nacharbeit und Sortierung direkt bei Ihnen vor Ort.
 
-Type *3* to discuss your inspection requirements.`;
+👉 Type *3* to request support.`;
   }
 
-  // ===== COMPLAINT / ROOT CAUSE =====
-  if (
-    text.includes("reklamation") ||
-    text.includes("complaint") ||
-    text.includes("fehleranalyse") ||
-    text.includes("root cause")
-  ) {
-    return `We support quality-related problem cases with structured inspection, documentation and issue-oriented quality support.
-
-Wir unterstützen qualitätsrelevante Problemfälle mit strukturierter Prüfung, Dokumentation und lösungsorientierter Qualitätsunterstützung.
-
-Type *3* if you need immediate support.`;
-  }
-
-  // ===== CAPACITY / SUPPORT =====
-  if (
-    text.includes("kapazität") ||
-    text.includes("personal") ||
-    text.includes("team") ||
-    text.includes("engpass")
-  ) {
-    return `We support companies flexibly in case of workload peaks, quality bottlenecks and temporary support requirements.
-
-Wir unterstützen Unternehmen flexibel bei Auftragsspitzen, Qualitätsengpässen und vorübergehendem Unterstützungsbedarf.
-
-Type *3* to send your request.`;
-  }
-
-  // ===== CALLBACK / CONTACT REQUEST =====
-  if (
-    text.includes("rückruf") ||
-    text.includes("call me") ||
-    text.includes("rufen sie mich an") ||
-    text.includes("contact me")
-  ) {
-    return `Please send your name, company and phone number. We will get back to you as soon as possible.
-
-Bitte senden Sie Ihren Namen, Firmennamen und Ihre Telefonnummer. Wir melden uns schnellstmöglich bei Ihnen.`;
-  }
-
-  // ===== INSPECTION GENERAL =====
+  // ===== INSPECTION =====
   if (
     text.includes("prüfung") ||
     text.includes("kontrolle") ||
     text.includes("inspection")
   ) {
-    return `We offer professional quality inspection including visual checks, measurement and documentation.
+    return `We provide professional inspection services including visual inspection, measurement and documentation.
 
 Wir bieten professionelle Qualitätsprüfungen inklusive Sichtprüfung, Messung und Dokumentation.
 
-Type *3* to request a quotation / Angebot anfragen.`;
+👉 Type *3* to request a quotation.`;
   }
 
   // ===== DEFAULT =====
-  return `❓ I didn’t fully understand your request.
+  return `❓ Please describe your request or choose an option from the menu.
 
-Bitte beschreiben Sie Ihr Anliegen genauer oder wählen Sie eine Option.
+Bitte beschreiben Sie Ihr Anliegen oder wählen Sie eine Option aus dem Menü.
 
-Please select an option from the menu.
-
-Type *menu* to continue.`;
+👉 Type *menu* to continue.`;
 }
 
 module.exports = { generateBotReply };

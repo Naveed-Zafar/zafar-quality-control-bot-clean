@@ -27,8 +27,9 @@ function isFromBusiness(message, metadata) {
   return metadata?.display_phone_number && message.from === metadata.display_phone_number;
 }
 
-function startLeadSession(phone) {
+function startLeadSession(phone, type = 'quote') {
   leadSessions.set(phone, {
+    type,
     step: 'name',
     data: {},
   });
@@ -116,8 +117,10 @@ webhookRouter.post('/webhook', async (req, res) => {
         const from = message.from;
         const currentSession = getLeadSession(from);
 
-        // Lead capture flow
+        // Existing active flow (quote or callback)
         if (currentSession) {
+          const sessionType = currentSession.type;
+
           if (currentSession.step === 'name') {
             currentSession.data.name = incomingText;
             currentSession.step = 'company';
@@ -127,8 +130,36 @@ webhookRouter.post('/webhook', async (req, res) => {
 
           if (currentSession.step === 'company') {
             currentSession.data.company = incomingText;
-            currentSession.step = 'product';
-            await sendWhatsAppTextMessage(from, 'Please describe the product or service you need.');
+
+            if (sessionType === 'callback') {
+              currentSession.step = 'phone';
+              await sendWhatsAppTextMessage(from, 'Please enter your phone number.');
+            } else {
+              currentSession.step = 'product';
+              await sendWhatsAppTextMessage(from, 'Please describe the product or service you need.');
+            }
+            continue;
+          }
+
+          if (currentSession.step === 'phone') {
+            currentSession.data.phone = incomingText;
+
+            const summary = `Callback request received.
+
+Name: ${currentSession.data.name}
+Company: ${currentSession.data.company}
+Phone: ${currentSession.data.phone}
+
+We will contact you shortly.`;
+
+            console.log('New callback captured:', {
+              whatsappNumber: from,
+              ...currentSession.data,
+            });
+
+            await sendWhatsAppTextMessage(from, summary);
+
+            clearLeadSession(from);
             continue;
           }
 
@@ -174,20 +205,32 @@ Our team will contact you soon.`;
           }
         }
 
-        // Start lead flow
+        // Start quote flow
         if (incomingText === '3') {
-          startLeadSession(from);
+          startLeadSession(from, 'quote');
           await sendWhatsAppTextMessage(from, 'Quotation request started. Please enter your full name.');
           continue;
         }
 
-        // Normal menu reply first
+        // Start callback flow
+        if (
+          incomingText.toLowerCase().includes('rückruf') ||
+          incomingText.toLowerCase().includes('call me') ||
+          incomingText.toLowerCase().includes('rufen sie mich an')
+        ) {
+          startLeadSession(from, 'callback');
+          await sendWhatsAppTextMessage(from, 'Callback request started. Please enter your full name.');
+          continue;
+        }
+
+        // Standard menu / keyword reply
         let replyText = generateBotReply(incomingText);
 
-        // If fallback/default reply appears, route to AI
+        // Only route truly unmatched requests to AI
         if (
           replyText.includes('Type *menu* to continue.') ||
-          replyText.includes('Bitte wählen Sie eine Option') ||
+          replyText.includes('Please select an option from the menu.') ||
+          replyText.includes('Bitte beschreiben Sie Ihr Anliegen genauer') ||
           replyText.includes('I didn’t fully understand') ||
           replyText.includes("I didn't fully understand")
         ) {
